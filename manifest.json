@@ -1,9 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "Pinterest Overlay Remover",
-  "version": "1.1",
-  "description": "Removes the login overlay on Pinterest pin pages, enabling image copying for non-logged-in users.",
+  "name": "Pinterest Image Unblocker",
+  "version": "1.2",
+  "description": "Removes the login overlay on Pinterest pages, allowing you to copy and save images.",
   "author": "Coding Partner",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "content_scripts": [
     {
       "matches": [
