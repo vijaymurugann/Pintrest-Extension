@@ -1,7 +1,7 @@
 # Pinterest Image Unblocker
 
 <div align="center">
-  <img src="icon500.png" alt="Extension Icon" width="128" height="128">
+  <img src="banner-1.png" alt="Extension Icon" width="1020" height="505">
 </div>
 
 A browser extension that removes the login overlay on Pinterest pages, allowing you to copy and save images without being forced to sign up or log in.
