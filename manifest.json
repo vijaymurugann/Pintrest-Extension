@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Pinterest Overlay Remover",
+  "version": "1.1",
+  "description": "Removes the login overlay on Pinterest pin pages, enabling image copying for non-logged-in users.",
+  "author": "Coding Partner",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.pinterest.com/pin/*",
+        "*://*.pinterest.co.uk/pin/*",
+        "*://*.pinterest.ca/pin/*",
+        "*://*.pinterest.de/pin/*",
+        "*://*.pinterest.fr/pin/*",
+        "*://*.pinterest.jp/pin/*",
+        "*://*.pinterest.com.au/pin/*",
+        "*://*.pinterest.it/pin/*",
+        "*://*.pinterest.es/pin/*",
+        "*://*.pinterest.in/pin/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
