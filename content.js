@@ -5,6 +5,23 @@
  * Updated to bring the image to the front using z-index and handle SPA navigation.
  */
 
+// Visual indicator to confirm the extension is active.
+console.log("Pinterest Overlay Remover extension is running!");
+
+/**
+ * Ensures the main header is always on top of any other content.
+ */
+function ensureHeaderIsOnTop() {
+  // Pinterest's main header has a specific data-test-id.
+  const header = document.querySelector('header');
+  if (header) {
+    console.log("Header found. Ensuring it stays on top.");
+    // We set a very high z-index to make sure it's above the image.
+    header.style.position = "relative"; // z-index requires a non-static position.
+    header.style.zIndex = "10000";
+  }
+}
+
 /**
  * Brings the actual image to the front by setting its z-index,
  * so that it sits on top of any overlays.
@@ -19,7 +36,7 @@ function bringImageToFront(container) {
     console.log("Image found. Bringing it to the front with z-index.");
     // To use z-index, the position property must be set to something other than 'static'.
     image.style.position = "absolute";
-    image.style.zIndex = "999";
+    image.style.zIndex = "9999"; // This is high, but the header will be higher.
 
     // The login wall often disables scrolling on the body. Let's re-enable it.
     document.body.style.overflow = "auto";
@@ -71,6 +88,8 @@ function setupEventListenersForImageContainer() {
 const pageChangeObserver = new MutationObserver(() => {
   // Every time the page content changes, we'll try to find and set up any new image containers.
   setupEventListenersForImageContainer();
+  // Also, we'll ensure the header is on top.
+  ensureHeaderIsOnTop();
 });
 
 // Tell the observer to watch the entire body for child elements being added or removed.
@@ -79,6 +98,7 @@ pageChangeObserver.observe(document.body, {
   subtree: true,
 });
 
-// Finally, run the function once when the script first loads,
-// in case the container is already on the page.
+// Finally, run the functions once when the script first loads,
+// in case the container/header is already on the page.
 setupEventListenersForImageContainer();
+ensureHeaderIsOnTop();
